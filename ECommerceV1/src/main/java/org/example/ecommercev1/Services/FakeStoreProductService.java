@@ -72,4 +72,9 @@ public class FakeStoreProductService implements ProductService {
 //        execute(url, HttpMethod.PUT, requestCallback, null);
     }
 
+    @Override
+    public Product addProduct(Product p) {
+        return null;
+    }
+
 }

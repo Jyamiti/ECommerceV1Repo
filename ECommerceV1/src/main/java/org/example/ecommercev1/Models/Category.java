@@ -1,11 +1,13 @@
 package org.example.ecommercev1.Models;
 
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Getter
 @Setter
-public class Category {
-    private Long id;
+@Entity
+public class Category extends BaseEntity {
     private String name;
 }

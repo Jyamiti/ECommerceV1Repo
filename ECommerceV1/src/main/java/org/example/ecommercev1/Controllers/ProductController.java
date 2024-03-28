@@ -4,6 +4,7 @@ package org.example.ecommercev1.Controllers;
 import org.example.ecommercev1.Models.Product;
 import org.example.ecommercev1.Services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class ProductController {
     private ProductService productService;
 
     @Autowired
-    public ProductController(ProductService productService){
+    public ProductController(@Qualifier("selfStoreProductService") ProductService productService){
         this.productService = productService;
     }
     @GetMapping("/{id}")
@@ -30,5 +31,9 @@ public class ProductController {
     @PutMapping("/{id}")
     public Product replaceProduct(@PathVariable("id") Long id, @RequestBody Product p){
         return productService.replaceProduct(id, p);
+    }
+    @PostMapping()
+    public Product addProduct(@RequestBody Product p){
+        return productService.addProduct(p);
     }
 }
