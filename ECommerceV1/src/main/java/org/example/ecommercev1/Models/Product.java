@@ -15,5 +15,5 @@ public class Product extends BaseEntity {
     private Category  category;
     private  String description;
     private  String imageURL;
-
+    private boolean isDeleted;
 }

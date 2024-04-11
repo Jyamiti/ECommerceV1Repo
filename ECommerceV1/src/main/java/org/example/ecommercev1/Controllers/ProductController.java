@@ -29,11 +29,16 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public Product replaceProduct(@PathVariable("id") Long id, @RequestBody Product p){
+    public Product updateProduct(@PathVariable("id") Long id, @RequestBody Product p){
         return productService.replaceProduct(id, p);
     }
     @PostMapping()
     public Product addProduct(@RequestBody Product p){
         return productService.addProduct(p);
+    }
+
+    @DeleteMapping("/{id}")
+    public Product deleteProduct(@PathVariable("id") Long id){
+        return productService.deleteProduct(id);
     }
 }
